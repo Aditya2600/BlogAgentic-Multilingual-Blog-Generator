@@ -1,34 +1,29 @@
-Here’s a clean and professional README.md file for your BlogAgentic project — a multilingual blog generator using LangGraph, FastAPI, and Groq (LLaMA 3):
-
-⸻
-
-
 # 🧠 BlogAgentic – Multilingual Blog Generator
 
-Generate SEO-friendly blogs in multiple languages (like Hindi & French) using **LangGraph**, **FastAPI**, and **Groq's LLMs (LLaMA 3)**. This project demonstrates a graph-based approach to AI workflows for content generation and translation.
+Generate SEO-friendly blogs in multiple languages (like **Hindi** & **French**) using **LangGraph**, **FastAPI**, and **Groq's LLMs (LLaMA 3)**. This project demonstrates a graph-based approach to AI workflows for content generation and translation.
 
 ---
 
 ## 🚀 Features
 
-- 🌐 Accepts `topic` and optional `language` via API.
-- ✍️ Generates a creative blog title and detailed content.
-- 🌍 Translates blog to Hindi or French using conditional routing.
-- ⚙️ LangGraph integration for node-based LLM orchestration.
-- 📊 LangSmith-compatible for tracing & debugging.
+- 🌐 Accepts `topic` and optional `language` via API
+- ✍️ Generates a creative blog title and detailed content
+- 🌍 Translates blog to **Hindi** or **French** using conditional routing
+- ⚙️ LangGraph integration for node-based LLM orchestration
+- 📊 Compatible with **LangSmith** for tracing & debugging
 
 ---
 
 ## 🧱 Tech Stack
 
-| Tool        | Purpose                                |
-|-------------|----------------------------------------|
-| FastAPI     | Web framework for API endpoints        |
-| LangGraph   | Build dynamic LLM workflows as graphs  |
-| Groq        | LLM provider (LLaMA 3.1 8B Instant)    |
-| LangChain   | LLM abstraction & chaining              |
-| Uvicorn     | ASGI server                            |
-| Python-dotenv | Load env variables securely          |
+| Tool           | Purpose                                 |
+|----------------|-----------------------------------------|
+| **FastAPI**     | Web framework for API endpoints         |
+| **LangGraph**   | Build dynamic LLM workflows as graphs   |
+| **Groq**        | LLM provider (LLaMA 3.1 8B Instant)     |
+| **LangChain**   | LLM abstraction & chaining              |
+| **Uvicorn**     | ASGI server                             |
+| **python-dotenv** | Load `.env` variables securely       |
 
 ---
 
@@ -36,44 +31,42 @@ Generate SEO-friendly blogs in multiple languages (like Hindi & French) using **
 
 BlogAgentic/
 │
-├── app.py                         # FastAPI server
-├── requirements.txt              # Dependencies
-├── .env                          # Environment variables
+├── app.py                     # FastAPI server entrypoint
+├── requirements.txt           # Dependencies
+├── .env                       # Environment variables
 │
 ├── src/
 │   ├── llms/
-│   │   └── groqllm.py            # LLM wrapper (Groq)
+│   │   └── groqllm.py         # Groq LLM wrapper
 │   ├── states/
-│   │   └── blogstate.py          # BlogState & Blog model
+│   │   └── blogstate.py       # Blog model & state schema
 │   ├── nodes/
-│   │   └── blog_node.py          # Blog generation nodes
+│   │   └── blog_node.py       # Nodes for generation & translation
 │   └── graphs/
-│       └── graph_builder.py      # Graph construction logic
+│       └── graph_builder.py   # Graph logic using LangGraph
 │
-└── langgraph.yaml                # LangGraph Studio config
+└── langgraph.yaml             # LangGraph Studio configuration
 
 ---
 
 ## 🛠️ Setup Instructions
 
-### 1. Clone the repo
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/BlogAgentic.git
+git clone https://github.com/Aditya2600/BlogAgentic-Multilingual-Blog-Generator.git
 cd BlogAgentic
 
-2. Create virtual environment using uv
+2. Create a Virtual Environment using uv
 
 uv venv
 source .venv/bin/activate
 
-3. Install dependencies
+3. Install Dependencies
 
 uv pip install -r requirements.txt
 
-4. Setup .env
-
-Create a .env file with:
+4. Create .env File
 
 GROQ_API_KEY=your_groq_api_key
 LANGCHAIN_API_KEY=your_langsmith_api_key
@@ -81,49 +74,58 @@ LANGCHAIN_API_KEY=your_langsmith_api_key
 
 ⸻
 
-🔄 Run the FastAPI server
+🔄 Run the FastAPI Server
 
 uvicorn app:app --reload
 
 API will be available at:
-	•	Swagger UI → http://127.0.0.1:8000/docs
-	•	Endpoint → POST /blogs
-
-
-
-
-## 🔁 Sample Blog Generation via API
-
-### 📬 Postman Request:
-![Postman Request Screenshot](assets/postman_request.png)
-
-### 🧠 LangGraph Visual Workflow:
-![LangGraph Graph View](assets/langgraph_graph.png)
+	•	Swagger UI: http://127.0.0.1:8000/docs
+	•	Endpoint: POST /blogs
 
 ⸻
 
-🧠 How LangGraph Works Here
+📬 Sample Blog Generation (Postman)
 
-The app builds 2 graph variants:
-	•	Topic-only graph → START ➝ title_creation ➝ content_generation ➝ END
-	•	Language graph → Adds:
-	•	route_decision
-	•	Conditional translation (hindi_translation / french_translation)
+Request JSON
 
-LangGraph allows flexible workflows with conditional branching based on language input.
+{
+  "topic": "Ethical AI",
+  "language": "french"
+}
+
+Screenshots
+
+Postman Request	LangGraph Graph View
+	
+
+
+⸻
+
+🧠 How LangGraph Works
+
+Two graph variants are dynamically built:
+
+📌 If only topic is passed:
+
+START ➝ title_creation ➝ content_generation ➝ END
+
+🌍 If language is also passed:
+
+START ➝ title_creation ➝ content_generation ➝ route_decision ➝ hindi_translation/french_translation ➝ END
+
+LangGraph enables dynamic, node-based execution with flexible routing!
 
 ⸻
 
 🧪 LangGraph Studio Integration
 
-Run the local dev server to monitor graph visually:
+To visualize and monitor node-level flow:
 
 langgraph dev
 
-	•	Studio URL: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
-	•	Track node-level LLM activity via LangSmith
+Then open LangGraph Studio
 
-Make sure your langgraph.yaml is set like:
+Ensure your langgraph.yaml is configured as:
 
 dependencies: ["."]
 graphs:
@@ -133,30 +135,24 @@ env: ./.env
 
 ⸻
 
-📦 Freeze dependencies
+📦 Freeze Dependencies
 
 uv pip freeze > requirements.txt
 
 
 ⸻
 
-✍️ Author
+👤 Author
 
 Aditya Meshram
 B.Tech IT | NIT Raipur
 💼 Project: AI x LangChain Workflow Automation
 
-
 ⸻
 
 📄 License
 
-MIT License – free for commercial & personal use
+MIT License – Free to use for personal and commercial projects.
 
 ⸻
 
-
-
-
-
----
