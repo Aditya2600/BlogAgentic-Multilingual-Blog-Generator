@@ -31,22 +31,21 @@ Generate SEO-friendly blogs in multiple languages (like Hindi & French) using **
 
 BlogAgentic/
 │
-├── app.py                         # FastAPI server
-├── requirements.txt              # Dependencies
-├── .env                          # Environment variables
+├── app.py                         # FastAPI server  
+├── requirements.txt               # Dependencies  
+├── .env                           # Environment variables  
 │
 ├── src/
 │   ├── llms/
-│   │   └── groqllm.py            # LLM wrapper (Groq)
+│   │   └── groqllm.py             # LLM wrapper (Groq)
 │   ├── states/
-│   │   └── blogstate.py          # BlogState & Blog model
+│   │   └── blogstate.py           # BlogState & Blog model
 │   ├── nodes/
-│   │   └── blog_node.py          # Blog generation nodes
+│   │   └── blog_node.py           # Blog generation nodes
 │   └── graphs/
-│       └── graph_builder.py      # Graph construction logic
+│       └── graph_builder.py       # Graph construction logic
 │
-└── langgraph.yaml                # LangGraph Studio config
-
+└── langgraph.yaml                 # LangGraph Studio config
 ---
 
 ## 🛠️ Setup Instructions

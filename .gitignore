@@ -10,3 +10,4 @@ wheels/
 .venv
 .langgraph_api/
 uv.lock
+.env
