@@ -52,7 +52,7 @@ BlogAgentic/
 
 ### 1. Clone the repo
 
-```bash
+``bash
 git clone https://github.com/Aditya2600/BlogAgentic-Multilingual-Blog-Generator.git
 cd BlogAgentic
 
@@ -89,10 +89,10 @@ API will be available at:
 ## 🔁 Sample Blog Generation via API
 
 ### 📬 Postman Request:
-![Postman Request Screenshot](assests/langgraph_graph.png)
+![Postman Request Screenshot](assets/postman_request.png)
 
 ### 🧠 LangGraph Visual Workflow:
-![LangGraph Graph View](assests/postman_request.png)
+![LangGraph Graph View](assets/langgraph_graph.png)
 
 ⸻
 
