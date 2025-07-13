@@ -53,7 +53,7 @@ BlogAgentic/
 
 ### 1. Clone the repo
 
-``bash
+```bash
 git clone https://github.com/Aditya2600/BlogAgentic-Multilingual-Blog-Generator.git
 cd BlogAgentic
 
