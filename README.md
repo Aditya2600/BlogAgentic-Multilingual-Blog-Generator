@@ -28,7 +28,7 @@ Generate SEO-friendly blogs in multiple languages (like Hindi & French) using **
 ---
 
 ## 📁 Project Structure
-
+```
 BlogAgentic/
 │
 ├── app.py                         # FastAPI server  
@@ -48,7 +48,7 @@ BlogAgentic/
 ├── saved_models/                  # (Optional) Trained models directory
 ├── data/                          # (Optional) Data used for processing/testing
 └── langgraph.yaml                 # LangGraph Studio config
-
+```
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the repo
