@@ -141,8 +141,6 @@ env: ./.env
 
 Aditya Meshram
 B.Tech IT | NIT Raipur
-💼 Project: AI x LangChain Workflow Automation
-
 
 ⸻
 
