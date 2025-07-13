@@ -45,8 +45,9 @@ BlogAgentic/
 │   └── graphs/
 │       └── graph_builder.py       # Graph construction logic
 │
+├── saved_models/                  # (Optional) Trained models directory
+├── data/                          # (Optional) Data used for processing/testing
 └── langgraph.yaml                 # LangGraph Studio config
----
 
 ## 🛠️ Setup Instructions
 
