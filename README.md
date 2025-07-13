@@ -60,9 +60,9 @@ cd BlogAgentic
 
 2. Create virtual environment using uv
 
-uv venv
+`uv venv
 source .venv/bin/activate
-
+`
 3. Install dependencies
 
 uv pip install -r requirements.txt
