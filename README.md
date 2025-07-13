@@ -58,29 +58,29 @@ git clone https://github.com/Aditya2600/BlogAgentic-Multilingual-Blog-Generator.
 cd BlogAgentic
 ```
 
-2. Create virtual environment using uv
+### 2. Create virtual environment using uv
 
-`uv venv
+```uv venv
 source .venv/bin/activate
-`
-3. Install dependencies
-``
+```
+### 3. Install dependencies
+```
 uv pip install -r requirements.txt
-``
+```
 
-4. Setup .env
+### 4. Setup .env
 
 Create a .env file with:
-
+```
 GROQ_API_KEY=your_groq_api_key
 LANGCHAIN_API_KEY=your_langsmith_api_key
-
+```
 
 ⸻
 
-🔄 Run the FastAPI server
+#### 🔄 Run the FastAPI server
 
-uvicorn app:app --reload
+```uvicorn app:app --reload```
 
 API will be available at:
 	•	Swagger UI → http://127.0.0.1:8000/docs
@@ -99,7 +99,7 @@ API will be available at:
 
 ⸻
 
-🧠 How LangGraph Works Here
+### 🧠 How LangGraph Works Here
 
 The app builds 2 graph variants:
 	•	Topic-only graph → START ➝ title_creation ➝ content_generation ➝ END
@@ -111,7 +111,7 @@ LangGraph allows flexible workflows with conditional branching based on language
 
 ⸻
 
-🧪 LangGraph Studio Integration
+## 🧪 LangGraph Studio Integration
 
 Run the local dev server to monitor graph visually:
 
@@ -130,14 +130,14 @@ env: ./.env
 
 ⸻
 
-📦 Freeze dependencies
+## 📦 Freeze dependencies
 
-uv pip freeze > requirements.txt
+```uv pip freeze > requirements.txt```
 
 
 ⸻
 
-✍️ Author
+## ✍️ Author
 
 Aditya Meshram
 B.Tech IT | NIT Raipur
@@ -146,7 +146,7 @@ B.Tech IT | NIT Raipur
 
 ⸻
 
-📄 License
+## 📄 License
 
 MIT License – free for commercial & personal use
 
