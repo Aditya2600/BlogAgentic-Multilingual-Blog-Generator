@@ -4,6 +4,13 @@ Generate SEO-friendly blogs in multiple languages (like Hindi & French) using **
 
 ---
 
+## ✨ UI Preview
+
+![UI Overview](assets/ui-overview.png)
+![Generated Output](assets/ui-output.png)
+
+---
+
 ## 🚀 Features
 
 - 🌐 Accepts `topic` and optional `language` via API.
@@ -149,5 +156,4 @@ B.Tech IT | NIT Raipur
 MIT License – free for commercial & personal use
 
 ⸻
-
 

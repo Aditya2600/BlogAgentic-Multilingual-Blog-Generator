@@ -18,11 +18,13 @@ os.environ["LANGSMITH_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
 
 BASE_DIR = Path(__file__).resolve().parent
 ASSETS_DIR = BASE_DIR / "assets"
+STATIC_DIR = BASE_DIR / "static"
 app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 @app.get("/")
 async def index():
-    return FileResponse(ASSETS_DIR / "index.html")
+    return FileResponse(STATIC_DIR / "index.html")
 
 ## API's
 
