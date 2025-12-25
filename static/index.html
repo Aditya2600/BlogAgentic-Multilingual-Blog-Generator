@@ -108,7 +108,51 @@
         </div>
       </section>
 
-      <section class="footer reveal delay-3">
+      <section class="studio reveal delay-3">
+        <div class="studio-header">
+          <div>
+            <h3>LangGraph Studio</h3>
+            <p>Walk through every node execution or open a clean snapshot for demos.</p>
+          </div>
+          <div class="actions">
+            <button id="studio-open" type="button">Open Studio</button>
+            <button id="studio-embed-toggle" type="button">Embed Studio</button>
+          </div>
+        </div>
+        <div class="studio-grid">
+          <div class="studio-card">
+            <div class="studio-label">Live view</div>
+            <div class="studio-controls">
+              <label for="studio-base">Studio base URL</label>
+              <input
+                id="studio-base"
+                type="text"
+                value="http://127.0.0.1:2024"
+                autocomplete="off"
+              />
+              <p class="studio-note">
+                Run <code>langgraph dev</code> to expose the graph locally. If the embed is
+                blocked, open in a new tab.
+              </p>
+            </div>
+            <div class="studio-embed">
+              <div class="studio-placeholder" id="studio-placeholder">
+                Embed is off. Click "Embed Studio" to load the live view.
+              </div>
+              <iframe id="studio-frame" title="LangGraph Studio"></iframe>
+            </div>
+          </div>
+          <div class="studio-card">
+            <div class="studio-label">Graph snapshot</div>
+            <div class="studio-image">
+              <img src="/assets/langgraph_graph.png" alt="LangGraph graph preview" />
+            </div>
+            <p class="studio-note">Fast fallback for demos without Studio running.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer reveal delay-4">
         <div class="foot-card">
           <div class="foot-title">Flow</div>
           <div class="foot-body">Title creation, content generation, translation.</div>

@@ -8,6 +8,11 @@ const outputContent = document.getElementById("output-content");
 const copyBtn = document.getElementById("copy");
 const resetBtn = document.getElementById("reset");
 const chips = document.querySelectorAll(".chip");
+const studioOpenBtn = document.getElementById("studio-open");
+const studioEmbedToggle = document.getElementById("studio-embed-toggle");
+const studioBaseInput = document.getElementById("studio-base");
+const studioFrame = document.getElementById("studio-frame");
+const studioPlaceholder = document.getElementById("studio-placeholder");
 
 const setStatus = (message, state = "") => {
   statusEl.textContent = message;
@@ -126,3 +131,54 @@ resetBtn.addEventListener("click", () => {
   outputContent.textContent = "Your content will appear here. Markdown formatting will be preserved.";
   setStatus("");
 });
+
+const buildStudioUrl = () => {
+  const baseUrl = studioBaseInput ? studioBaseInput.value.trim() : "";
+  if (!baseUrl) {
+    if (studioPlaceholder) {
+      studioPlaceholder.textContent = "Add a Studio base URL to continue.";
+    }
+    return "";
+  }
+  return `https://smith.langchain.com/studio/?baseUrl=${encodeURIComponent(baseUrl)}`;
+};
+
+const setStudioEmbed = (isActive) => {
+  if (!studioFrame || !studioPlaceholder) {
+    return;
+  }
+
+  if (!isActive) {
+    studioFrame.src = "";
+    studioFrame.classList.remove("is-visible");
+    studioPlaceholder.classList.remove("is-hidden");
+    return;
+  }
+
+  const studioUrl = buildStudioUrl();
+  if (!studioUrl) {
+    return;
+  }
+
+  studioFrame.src = studioUrl;
+  studioFrame.classList.add("is-visible");
+  studioPlaceholder.classList.add("is-hidden");
+};
+
+if (studioOpenBtn) {
+  studioOpenBtn.addEventListener("click", () => {
+    const studioUrl = buildStudioUrl();
+    if (studioUrl) {
+      window.open(studioUrl, "_blank", "noopener,noreferrer");
+    }
+  });
+}
+
+if (studioEmbedToggle) {
+  let isEmbedded = false;
+  studioEmbedToggle.addEventListener("click", () => {
+    isEmbedded = !isEmbedded;
+    setStudioEmbed(isEmbedded);
+    studioEmbedToggle.textContent = isEmbedded ? "Hide Embed" : "Embed Studio";
+  });
+}
