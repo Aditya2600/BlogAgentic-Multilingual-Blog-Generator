@@ -1,5 +1,8 @@
 import uvicorn
 from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from src.graphs.graph_builder import GraphBuilder
 from src.llms.groqllm import GroqLLM
 
@@ -12,6 +15,14 @@ app=FastAPI()
 print(os.getenv("LANGCHAIN_API_KEY"))
 
 os.environ["LANGSMITH_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
+
+BASE_DIR = Path(__file__).resolve().parent
+ASSETS_DIR = BASE_DIR / "assets"
+app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
+
+@app.get("/")
+async def index():
+    return FileResponse(ASSETS_DIR / "index.html")
 
 ## API's
 
@@ -43,4 +54,3 @@ async def create_blogs(request:Request):
 
 if __name__=="__main__":
     uvicorn.run("app:app",host="0.0.0.0",port=8000,reload=True)
-

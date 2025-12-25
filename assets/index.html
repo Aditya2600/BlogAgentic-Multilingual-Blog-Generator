@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BlogAgentic Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <main class="page">
+      <header class="nav reveal">
+        <div class="logo">BlogAgentic</div>
+        <div class="pill">LangGraph + Groq</div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">AI Blog Studio</div>
+          <h1>Turn a spark into a polished blog in seconds.</h1>
+          <p class="lead">
+            Generate SEO friendly titles, structured markdown content, and optional
+            translations in a single flow. Built to show off crisp product craft.
+          </p>
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-title">Instant titles</div>
+              <div class="stat-body">Purpose built prompts for click worthy hooks.</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-title">Deep outlines</div>
+              <div class="stat-body">Full markdown content with sectioned detail.</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-title">Multi language</div>
+              <div class="stat-body">Translate without losing tone or formatting.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel reveal delay-1">
+          <div class="panel-header">
+            <h2>Generate a blog</h2>
+            <span class="tag">Markdown ready</span>
+          </div>
+          <form id="blog-form">
+            <div class="field">
+              <label for="topic">Topic</label>
+              <input
+                id="topic"
+                name="topic"
+                type="text"
+                placeholder="Human centered AI in healthcare"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="language">Language</label>
+              <select id="language" name="language">
+                <option value="">Auto (English)</option>
+                <option value="hindi">Hindi</option>
+                <option value="french">French</option>
+              </select>
+            </div>
+            <div class="chips">
+              <button class="chip" type="button" data-topic="Designing trust in medical AI">
+                Designing trust in medical AI
+              </button>
+              <button class="chip" type="button" data-topic="Zero to one product launches">
+                Zero to one product launches
+              </button>
+              <button class="chip" type="button" data-topic="The future of creator analytics">
+                The future of creator analytics
+              </button>
+            </div>
+            <button class="primary" id="generate" type="submit">
+              <span>Generate blog</span>
+              <span class="spark"></span>
+            </button>
+            <div class="status" id="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="output reveal delay-2">
+        <div class="output-header">
+          <h3>Generated output</h3>
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="output-body">
+          <div class="output-title" id="output-title">Your title will appear here.</div>
+          <div class="output-content" id="output-content">
+            Your content will appear here. Markdown formatting will be preserved.
+          </div>
+        </div>
+      </section>
+
+      <section class="footer reveal delay-3">
+        <div class="foot-card">
+          <div class="foot-title">Flow</div>
+          <div class="foot-body">Title creation, content generation, translation.</div>
+        </div>
+        <div class="foot-card">
+          <div class="foot-title">Output</div>
+          <div class="foot-body">Ready to publish markdown in one API call.</div>
+        </div>
+        <div class="foot-card">
+          <div class="foot-title">Usage</div>
+          <div class="foot-body">POST /blogs with topic and language.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
